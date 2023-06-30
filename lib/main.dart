@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_minimal_timer/state%20management/timer_view_model.dart';
 import 'package:flutter_minimal_timer/ui/timer_screen.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider<TimerViewModel>(
+    create: (_) => TimerViewModel(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
