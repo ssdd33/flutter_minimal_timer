@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_minimal_timer/state%20management/timer_view_model.dart';
-import 'package:flutter_minimal_timer/ui/timer_screen.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_minimal_timer/pages/timer_page/timer_page.dart';
+import 'package:flutter_minimal_timer/services/service_locator.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider<TimerViewModel>(
-    create: (_) => TimerViewModel(),
-    child: const MyApp(),
-  ));
+  setupGetIt();
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -21,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Timer(),
+      home: const TimerPage(),
     );
   }
 }
